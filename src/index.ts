@@ -23,6 +23,9 @@ app.post("/add", async (req, res) => {
 		},
 	});
 
+
+	
+
 	res.json({
 		message: "Done signing up!",
 	});
