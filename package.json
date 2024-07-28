@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "tsc -b && npx prisma generate && node dist/index.js"
+    "dev": "tsc -b && npx prisma generate && node dist/index.js",
+    "build": "tsc -b && npx prisma generate"
   },
   "keywords": [],
   "author": "",
