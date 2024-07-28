@@ -15,13 +15,25 @@ app.get("/", async (req, res) => {
 	});
 });
 
-app.post("/add", async (req, res) => {
-	await client.user.create({
-		data: {
-			email: req.body.email,
-			name: req.body.name,
-		},
+app.post("/delete", async (req, res) => {
+	await client.user.deleteMany();
+
+	res.json({
+		message: "All users deleted",
 	});
+});
+
+app.post("/add", async (req, res) => {
+	let i = 0;
+	while (i < 1000) {
+		await client.user.create({
+			data: {
+				name: req.body.name,
+				email: req.body.email,
+			},
+		});
+		i++;
+	}
 
 	res.json({
 		message: "Done signing up!",
