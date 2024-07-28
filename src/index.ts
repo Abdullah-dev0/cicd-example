@@ -6,23 +6,28 @@ app.use(express.json());
 
 const client = new PrismaClient();
 
-app.get("/", (req, res) => {
-   res.json({
-      message: "heloo guys how are you!",
-   });
+app.get("/", async (req, res) => {
+	const response = await client.user.findMany();
+
+	res.json({
+		message: "heloo guys how are you!",
+		data: response,
+	});
 });
 
-app.post("/", async (req, res) => {
-   await client.user.create({
-      data: {
-         email: req.body.email,
-         name: req.body.name,
-      },
-   });
+app.post("/add", async (req, res) => {
+	await client.user.create({
+		data: {
+			email: req.body.email,
+			name: req.body.name,
+		},
+	});
 
-   res.json({
-      message: "Done signing up!",
-   });
+	res.json({
+		message: "Done signing up!",
+	});
 });
 
-app.listen(3000);
+app.listen(3000, () => {
+	console.log("Server is running on port 3000");
+});
