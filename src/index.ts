@@ -25,7 +25,7 @@ app.post("/delete", async (req, res) => {
 
 app.post("/add", async (req, res) => {
 	let i = 0;
-	while (i < 1000) {
+	while (i < 10) {
 		await client.user.create({
 			data: {
 				name: req.body.name,

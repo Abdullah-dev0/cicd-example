@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "tsc -b && npx prisma generate && node dist/index.js",
-    "build": "tsc -b && npx prisma generate"
+    "build": "tsc -b "
   },
   "keywords": [],
   "author": "",
