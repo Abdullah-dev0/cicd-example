@@ -10,8 +10,8 @@ app.get("/", async (req, res) => {
 	const response = await client.user.findMany();
 
 	res.json({
-		message: "heloo guys how are you!",
-		data: response,
+		message: "heloo guys how are you the server is working !",
+		data: response, 
 	});
 });
 
