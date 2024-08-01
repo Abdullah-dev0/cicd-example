@@ -15,6 +15,19 @@ app.get("/", async (req, res) => {
 	});
 });
 
+app.post("/find", async (req, res) => {
+	const response = await client.user.findMany({
+		where: {
+			email: req.body.email,
+		},
+	});
+
+	res.json({
+		message: "User found",
+		data: response,
+	});
+});
+
 app.post("/delete", async (req, res) => {
 	await client.user.deleteMany();
 
