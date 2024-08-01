@@ -11,7 +11,20 @@ app.get("/", async (req, res) => {
 
 	res.json({
 		message: "heloo guys how are you the server is working !",
-		data: response, 
+		data: response,
+	});
+});
+
+app.get("/:id", async (req, res) => {
+	const response = await client.user.findUnique({
+		where: {
+			id: req.params.id,
+		},
+	});
+
+	res.json({
+		message: "User found!",
+		data: response,
 	});
 });
 
