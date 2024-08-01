@@ -10,7 +10,20 @@ app.get("/", async (req, res) => {
 	const response = await client.user.findMany();
 
 	res.json({
-		message: "heloo guys how are you?",
+		message: "Hello guys, how are you? The server is working!",
+		data: response,
+	});
+});
+
+app.get("/:id", async (req, res) => {
+	const response = await client.user.findUnique({
+		where: {
+			id: req.params.id,
+		},
+	});
+
+	res.json({
+		message: "User found!",
 		data: response,
 	});
 });
